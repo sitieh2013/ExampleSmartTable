@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="lib/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="lib/style.css" />
+</head>
+<body>
+
+    <div data-ng-app="myApp" data-ng-controller="basicsCtrl">
+        <h2 class="text-center">Smart-Table</h2>
+        <div class="container-fluid" data-st-table="rowCollection">
+
+            <div class="row">
+                <form class="navbar-form" role="search">
+                    <input data-st-search class="form-control" placeholder="Search" type="search">
+                </form>
+             </div>
+
+            <br />
+                <div class="row">
+
+                    <div class="col-sm-6 col-md-4" data-ng-repeat="row in rowCollection">
+                        <div class="thumbnail2" data-ng-class="{'thumbnail1': $index % 2 == 0}">
+                            <div class="caption">
+                                <p class="title"> Card #{{$index+1}}</p>
+                                <hr />
+                                <p><strong>Name:</strong> {{row.name}} </p>
+                                <p><strong>birth Date:</strong> {{row.birthDate | date}} </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            <div class="row">
+                <div class="text-center" data-st-pagination="" data-st-items-by-page="itemsByPage" data-st-displayed-pages="3"></div>
+            </div>
+            </div>
+        <script src="angular.min.js"></script>
+        <script src="smart-table.js"></script>
+        <script src="basicsCtrl.js"></script>
+
+    </div>
+
+</body>
+</html>

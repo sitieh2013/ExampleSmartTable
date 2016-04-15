@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="lib/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="lib/style.css" />
+</head>
+<body>
+
+    <div data-ng-app="myApp" data-ng-controller="basicsCtrl">
+
+    <table data-st-table="rowCollection" class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="row">#</th>
+                <th scope="row">Name</th>
+                <th>Birth Date</th>
+            </tr>
+            <tr>
+                <td colspan="2"> <input st-search class="input-sm form-control" placeholder="Search" type="search"></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="row in rowCollection">
+                <td>{{$index+1}}</td>
+                <td>{{row.name}}</td>
+                <td>{{row.birthDate|date}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-center">
+                    <div data-st-pagination="" data-st-items-by-page="itemsByPage" data-st-displayed-pages="3"></div>
+                </td>
+            </tr>
+        </tfoot>
+        </table>
+
+        <script src="angular.min.js"></script>
+        <script src="smart-table.js"></script>
+        <script src="basicsCtrl.js"></script>
+
+    </div>
+
+</body>
+</html>
